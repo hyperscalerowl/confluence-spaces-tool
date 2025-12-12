@@ -62,7 +62,7 @@ jobs:
         run: ${{ matrix.install_extra || 'echo "No extra dependencies"' }}
 
       - id: cache-pipenv
-        uses: actions/cache@v4
+        uses: actions/cache@v5
         with:
           path: ~/.local/share/virtualenvs
           key: ${{ runner.os }}-pipenv-${{ hashFiles('**/Pipfile.lock') }}
@@ -74,7 +74,7 @@ jobs:
 
       - name: Cache Chrome Portable
         id: cache-chrome
-        uses: actions/cache@v4
+        uses: actions/cache@v5
         with:
           path: chrome_portable/**
           key: chrome-${{ runner.os }}-${{ hashFiles(matrix.chrome_url) }}
@@ -87,7 +87,7 @@ jobs:
 
       - name: Cache ChromeDriver
         id: cache-chromedriver
-        uses: actions/cache@v4
+        uses: actions/cache@v5
         with:
           path: chromedriver/**
           key: chromedriver-${{ runner.os }}-${{ hashFiles(matrix.chromedriver_url) }}
